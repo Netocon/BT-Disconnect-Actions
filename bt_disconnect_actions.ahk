@@ -1,6 +1,6 @@
 ﻿; Netocon. Revision date: 21/10/2026
 ; ---------------------------------------------------------------
-; Bluetooth Disconnect Actions-> sends Mute or Play_Pause
+; Bluetooth Disconnect Actions-> sends Mute or Stop
 ; Ref: learn.microsoft.com/en-us/windows/win32/bluetooth/bluetooth-and-wm-devicechange-messages
 ; ---------------------------------------------------------------
 
@@ -56,7 +56,7 @@ if (ErrorLevel)
 if (ErrorLevel)
     Menu, Tray, Icon, %iconMun%, 1612
 
-Menu, Tray, Add, Send Mute (off = Pause), ToggleMute
+Menu, Tray, Add, Send Mute (off = Stop), ToggleMute
 Menu, Tray, Add, Hide tray icon, ToggleHide
 Menu, Tray, Add
 Menu, Tray, Add, Settings window, ShowSettings
@@ -190,7 +190,7 @@ DoAction:
     if (UseMute)
         Send, {Volume_Mute}
     else
-        Send, {Media_Play_Pause}
+        Send, {Media_Stop}
 return
 
 ShowSettings:
@@ -223,9 +223,9 @@ SyncUI:
     GuiControl, Settings:, UseMute, %UseMute%
     GuiControl, Settings:, HideTray, %HideTray%
     if (UseMute)
-        Menu, Tray, Check, Send Mute (off = Pause)
+        Menu, Tray, Check, Send Mute (off = Stop)
     else
-        Menu, Tray, Uncheck, Send Mute (off = Pause)
+        Menu, Tray, Uncheck, Send Mute (off = Stop)
     if (HideTray) {
         Menu, Tray, Check, Hide tray icon
         Menu, Tray, NoIcon
