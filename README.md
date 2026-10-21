@@ -1,2 +1,2 @@
 # BT-Disconnect-Actions
-Pause or mute audio when Bluetooth disconnects.
+Stop or mute audio when Bluetooth disconnects.
